@@ -54,14 +54,11 @@ Here is an example of using HOG with orient=6, pix_per_cell=8, cell_per_block=2,
 
 All those features are combined to a single vector.
 
-####2. Explain how you settled on your final choice of HOG parameters.
 
 We tried various combinations of parameters to maximize the accuracy of the classifier but in the end we accepted a bit lower accuracy on the test dataset as after trying the pipeline out on video in gave us fewer false positives and better results.
 
 
-####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
-
-The code for this step is contained in the third code cell of the IPython notebook CarND-Vehicle-Detection-P5.ipynb.
+The code for next step is contained in the third code cell of the IPython notebook CarND-Vehicle-Detection-P5.ipynb.
 
 We started with reading in all the images from the dataset. 
 Here is an example of dataset images:
@@ -78,8 +75,6 @@ Here we accepted an accuracy of 98.51% as it was giving better result on the vid
 
 
 ###Sliding Window Search
-
-####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
 The code for this step is contained in the fourth, fifth and sixth code cell of the IPython notebook CarND-Vehicle-Detection-P5.ipynb.
 
