@@ -38,12 +38,15 @@ The parameters we for extracting features are:
 
 We tried multiple combination of parameters on the classifier(LinearSVM classifier explained later in the report) where we tried to get the maximum testing accuracy. So the parameters are mostly explored through the classifier and how he responded to some parameters changes.
 Here is an example of histogram of colors using hist_bins=16
+
 ![alt text][image1]
 
 Here is an example of spatial binning using size=(64,64)
+
 ![alt text][image2]
 
 Here is an example of using HOG with orient=6, pix_per_cell=8, cell_per_block=2, hog_channel=ALL
+
 ![alt text][image3]
 
 All those features are combined to a single vector.
@@ -56,11 +59,13 @@ The code for next step is contained in the third code cell of the IPython notebo
 
 We started with reading in all the images from the dataset. 
 Here is an example of dataset images:
+
 ![alt text][image4]
 
 Then we extract features for all the images to get a vector which we normalize using StandarScalar function from sklearn. 
 We then split the dataset into training set and testing set which is split into 80%/20%.
 We then train a linear support vector machine(LinearSVM) with a feature vector of length 15864. Training data is 14.208 examples and test set is 3.552 examples.
+
 ![alt text][image5]
 
 Here we accepted an accuracy of 98.51% as it was giving better result on the video than a classifier with 99.5% accuracy. We believe that is because of the data and how it is set up for the classifier. So the accuracy could be a bit false. Many of the images in the dataset are similar so even though we random select images for the training and the testing set it can happen that alot of the images in both sets are similar. This could be solved with handpicking some images out of the dataset and select what should be in the set more carefully. It can take a lot of time which is something we don't have at this point so trial and errors to find the best fit has to be enough.
@@ -74,11 +79,13 @@ We used Hog Sub-sampling Window Search method which allows us to only have to ex
 For extracting features we used the same parameters as for the classifier which gave ok results. We make two searches per frame where we first search with scale 2.0 in the y axis from 390 to 646 with 2 cells per step which is 75% overlap and then we do a second search of scale 1.2 in the y axis region from 390 to 518 with 2 cells per step which is 75% overlap. We also ignored from 0 to 196 of the x axis in the image as we were getting a lot of detection on cars coming against us on the other lane.
 
 Here is an example of detection on one frame:
+
 ![alt text][image6]
 
 After making a prediction we create a heatmap in every frame. We keep a history of 11 heatmaps where we sum the history of heatmaps together to remove false positives and make sure we have a car to draw bounding box around. 
 
 Here is an example of heatmap on same frame as the detection image:
+
 ![alt text][image7]
 
 
