@@ -1,0 +1,11 @@
+dataset/
+.ipynb_checkpoints
+out_vid2.mp4
+test_out.mp4
+writeup_template.md
+.DS_Store
+test_video.mp4
+project_video.mp4
+examples/
+README.md
+environment.yml
